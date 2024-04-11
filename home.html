@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LenderX</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.elliemae.io/elliemae/core/ssf/1.0/elli.ssf.guest-with-polyfill.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</head>
+
+<!-- This is the header section of the web page, containing navigation links, logo, and modals for settings and email. -->
+
+<!-- Logo and main navigation -->
+<header class="d-flex justify-content-between">
+    <div class="lenderxl" style="padding: 10px;">
+        <!-- Logo linking to LenderX homepage -->
+        <a href="https://app.lenderx.com/" target="_blank">
+            <img src="images/logo.svg" alt="LenderX" height="60">
+        </a>
+    </div>
+    <!-- Navigation links -->
+    <nav class="navbar navbar-expand-lg ">
+        <ul class="navbar-nav ml-auto d-flex flex-row">
+            <!-- Settings modal trigger -->
+            <li class="nav-item" title="Settings">
+                <a class="settings" href="#" data-toggle="modal" data-target="#settingsModal">
+                    <i class="fa fa-gear"></i>
+                </a>
+            </li>
+            <!-- Email modal trigger -->
+            <li class="nav-item" title="support@lenderx.com" style="cursor: pointer;">
+                <a class="Email" onclick=openEmailModal()>
+                    <i class="fa fa-envelope"></i>
+                </a>
+            </li>
+            <!-- Phone number -->
+            <li class="nav-item" title="1.877.263.0220">
+                <a class="Call" href="#"><i class='fas fa-phone-alt'></i></a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Email modal -->
+    <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+        <!-- Email Modal Content -->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="emailModalLabel">Send Email</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipientEmail" class="form-label">To:</label>
+                            <input type="email" class="form-control" id="recipientEmail" name="recipientEmail"
+                                value="support@lenderx.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subjectInput" class="form-label">Subject:</label>
+                            <input type="text" class="form-control" id="subjectInput" name="subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="messageTextarea" class="form-label">Message:</label>
+                            <textarea class="form-control" id="messageTextarea" name="message" rows="5"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="float:right">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings modal -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="settingsModalLabel"
+        aria-hidden="true">
+        <!-- Settings Modal Content -->
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen" style="max-width: 98%;">
+            <div class="modal-content">
+                <div class="modal-header " style="border: none;">
+                    <h5 class="modal-title" id="settingsModalLabel"><strong>Settings</strong></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body d-flex flex-row">
+                    <div class="setting-val d-flex flex-column">
+                        <label class="ts">Base URL *</label>
+                        <input class="inp" type="text" placeholder="Base URL *" value="https://app.lenderx.com">
+                        <label class="ts">API Key *</label>
+                        <input class="inp" type="password" placeholder="API Key *">
+                        <label class="ts">API Secret *</label>
+                        <input class="inp" type="text" placeholder="API Secret *">
+                        <div class=" tg toggle1 d-flex flex-row mt-3" data-key="Enable Payment">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox" checked>
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">Require Intent to Proceed to Enable Payment</div>
+                        </div>
+                        <div class="tg toggle2 d-flex flex-row mt-3" data-key="Wait For Complete">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox">
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">Require Order Complete to Update Appraiser Data</div>
+                        </div>
+                        <div class="warning d-flex flex-row mt-3">
+                            <div class="warningsign" style="color: red;">
+                                *
+                            </div>
+                            <div class="warningalert">Warning. Changes to these settings impact all Lender X users
+                                with in your comapny. Please confirm with your comapny administrator before saving.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vl"></div>
+                    <div class=" toggle-btn  d-flex flex-column">
+                        <div class="save-values">
+                            <p> <strong>Save Values To</strong></p>
+                        </div>
+                        <div class="tg toggle3  d-flex flex-row" data-key="1244">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox" checked>
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">Appraisal Comapny State (1244)</div>
+                        </div>
+                        <div class="tg toggle4 d-flex flex-row" data-key="1401">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox">
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">Loan Program (1401)</div>
+                        </div>
+                        <div class="tg toggle5 d-flex flex-row" data-key="1821">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox">
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">Estimate Value</div>
+                        </div>
+                        <div class="tg toggle6 d-flex flex-row" data-key="356">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox" checked>
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">Subj. Property Appraise Value (356)</div>
+                        </div>
+                        <div class="tg toggle7 d-flex flex-row" data-key="617">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox" checked>
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">Appraisal Company (617)</div>
+                        </div>
+                        <div class="tg toggle8 d-flex flex-row" data-key="618">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox" checked>
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+                            </label>
+                            <div class="cont">Appraiser Name (618)</div>
+                        </div>
+                        <div class="tg toggle9 d-flex flex-row" data-key="619">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox" checked>
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">Appraisal Company Address (619)</div>
+                        </div>
+                        <div class="tg toggle10 d-flex flex-row" data-key="620">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox" checked>
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">Appraisal Company City (620)</div>
+                        </div>
+                        <div class="tg toggle11 d-flex flex-row" data-key="621">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox" checked>
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">Appraisal Company Zip (621)</div>
+                        </div>
+                        <div class="tg toggle12 d-flex flex-row" data-key="622">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox" checked>
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">Appraisal Company Phone (622)</div>
+                        </div>
+                        <div class="tg toggle13 d-flex flex-row" data-key="641">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox" checked>
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">Appraisal Fee (641)</div>
+                        </div>
+                        <div class="tg toggle14 d-flex flex-row" data-key="CreateEfolder">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox" checked>
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">Auto Create eFolder</div>
+                        </div>
+                        <div class="tg toggle15 d-flex flex-row" data-key="ULDD.X30">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox" checked>
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">Property Valuation Effective Date</div>
+                        </div>
+                        <div class="tg toggle16 d-flex flex-row" data-key="ULDD.X31">
+                            <label class="switch">
+                                <input type="checkbox" class="toggleCheckbox" checked>
+                                <span class="slider round"></span>
+                                <span class="onlabel">ON</span>
+                                <span class="offlabel">OFF</span>
+
+                            </label>
+                            <div class="cont">UCDP Doc File ID</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="border: none;">
+                    <div class="modal-btn d-flex flex-row">
+                        <button type="button" class="btn1 btn btn-primary" data-dismiss="modal" aria-label="Submit"
+                            onclick="">
+                            <span aria-hidden="true">Test Connection</span>
+                        </button>
+                        <button type="button" class="btn2 btn btn-primary" data-dismiss="modal" aria-label="Cancel">
+                            <span aria-hidden="true">Save</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</header>
+<!-- Main container for the webpage -->
+<div class="mainpage">
+    <!-- Card for displaying LenderX Appraisal Order Details -->
+    <div class="card">
+        <p class="heads"> LenderX Apppraisal Order Details</p>
+    </div>
+    <!-- Accordion for organizing different sections of the order details -->
+    <div class="accordion" id="accordion">
+        <!-- Accordion section for Orders -->
+        <div class="card">
+            <!-- Header for the Orders section -->
+            <div class="accordion-header" id="headingOne">
+                <!-- Button to toggle collapse/expand of Orders section -->
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseOne"
+                    aria-controls="collapseOne" data-parent="#accordion">
+                    <!-- Icon and title for the Orders section -->
+                    <div class="acc-heading d-flex flex-row">
+                        <i class="bi bi-caret-right-fill"></i>
+                        <div class="tile">
+                            Orders
+                        </div>
+                    </div>
+                    <!-- Subtitle displaying total number of orders -->
+                    <div class="sub" style="text-align:left; white-space: normal;" id="total_orders">4 Items</div>
+                </button>
+            </div>
+            <!-- Subtitle displaying total number of orders -->
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="accordion-body d-flex flex-row">
+                    <!-- Table to display order details -->
+                    <div class="tablescroll">
+                        <table class="table2">
+                            <!-- Table headers -->
+                            <thead>
+                                <tr>
+                                    <th class="cols1">Order Date</th>
+                                    <th class="cols1">User Id</th>
+                                    <th class="cols1">Appraiser</th>
+                                    <th class="cols1">Appraisal Type</th>
+                                    <th class="cols1">Order Type</th>
+                                    <th class="cols1">Due Date</th>
+                                    <th class="cols1">Status</th>
+                                    <th class="cols2">View</th>
+                                </tr>
+                            </thead>
+                            <!-- Table body for order data -->
+                            <tbody class="tbodyData">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Other accordion sections for different aspects of the order details -->
+        <!-- Each section follows a similar structure as the Orders section -->
+        <div class="card">
+            <div class="accordion-header" id="headingTwo">
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-controls="collapseTwo" data-parent="#accordion">
+                    <div class="acc-heading d-flex flex-row">
+                        <i class="bi bi-caret-right-fill"></i>
+                        <div class="tile">
+                            Order History
+                        </div>
+                    </div>
+                    <div class="sub" style="text-align:left; white-space: normal;" id="total_items">1 Items
+                    </div>
+                </button>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="accordion-body d-flex flex-row">
+                    <table class="table3">
+                        <thead>
+                            <tr>
+                                <th class="cols1">Date</th>
+                                <th class="cols1">Form</th>
+                                <th class="cols1">To</th>
+                                <th class="cols1">Type</th>
+                                <th class="cols1">Comments</th>
+                                <th class="cols2">Attachments</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal for displaying additional details or actions -->
+<div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true"
+    style="overflow-y: auto;">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen" style="max-width: 98%;">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <!-- Modal header -->
+            <div class="modal-header d-flex flex-column" style="margin: 10px 10px 5px 10px;">
+                <!-- Header content and close button -->
+                <div class="d-flex flex-row" style="margin-bottom: 5px;">
+                    <span style="font-size: 40px; color: #1E79C2;"><i class="bi bi-chevron-left"></i></span>
+                    <div class="d-flex flex-column gap-10">
+                        <p class="modal-title" id="action-title">order</p>
+                        <h4 class="modal-title" id="action">order</h4>
+                    </div>
+                    <button type="button" class="closeBtn" data-dismiss="modal">&times;</button>
+                </div>
+                <span class="d-flex flex-row" style="margin-left: 10px;">
+                    <h5>Order Details</h5>
+                </span>
+            </div>
+            <!-- Modal body -->
+            <div class="modalbody">
+                <!-- Accordion for organizing sections within the modal -->
+                <!-- Each section within the modal follows a similar structure as the main accordion -->
+                <div class="accordion" id="accordion2">
+                    <div class="card">
+                        <div class="accordion-header" id="headingFour">
+                            <button class="btn btn-light" data-toggle="collapse" data-target="#collapseFour"
+                                aria-controls="collapseFour" data-parent="#accordion2">
+                                <div class="sub-head d-flex flex-column">
+                                    <div class="acc-heading d-flex flex-row">
+                                        <i class="bi bi-caret-right-fill"></i>
+                                        <div class="tile">
+                                            Orders
+                                        </div>
+                                    </div>
+                                    <div class="sub" style="text-align:left; white-space: normal;" id="subtitle1">
+                                        1234567890XYZ
+                                        |
+                                        Borrower Name, Co-Borrower Name | 123 Main Street | Milwaukee, WI,53202
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion2">
+                            <div class="accordion-body d-flex flex-row">
+                                <!-- Order Table -->
+                                <table class="order-table">
+                                    <tr>
+                                        <th>Order Created By</th>
+                                        <th class="t3" id="LoanCreaterName">Loan Creater Name</th>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="t1">Property Address</td>
+                                        <td id="Property Address">123 Main Street, Milwaukee, WI, 53202</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="t1">Borrower(s)</td>
+                                        <td id="Borrower">Borrower Name, Co-Borrower Name</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="t1">Purchase Price</td>
+                                        <td id="Purchase Price">$151,350</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="t1">Estimated Value</td>
+                                        <td id="Estimated Value">$150,000</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="t1">Loan Amount</td>
+                                        <td id="Loan Amount">$120,000</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="t1">Loan Number</td>
+                                        <td id="Loan Number">1234567890XYZ</td>
+                                    </tr>
+                                </table>
+                                <div class="vl"></div>
+                                <!-- Contact Entry -->
+                                <div class="order-val d-flex flex-column">
+                                    <div class="contactentry">
+                                        <p class="ts">Contact Entry </p>
+                                        <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                            id="contactentryMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <p class="tt">Contact Entry</p>
+                                            <span class="spancs ml-auto"><i class="bi bi-chevron-down"></i></span>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="contactentryMenuButton"
+                                            id="contactentryDropdown">
+                                            <a class="contactentry-item" href="#"
+                                                data-contact-type="Borrower">Borrower</a>
+                                            <a class="contactentry-item" href="#"
+                                                data-contact-type="Co-Borrower">Co-Borrower</a>
+                                            <a class="contactentry-item" href="#"
+                                                data-contact-type="Buyer's Agent">Buyer's
+                                                Agent</a>
+                                            <a class="contactentry-item" href="#"
+                                                data-contact-type="Seller's Agent">Seller's
+                                                Agent</a>
+                                            <a class="contactentry-item" href="#"
+                                                data-contact-type="Contact for Entry">Contact
+                                                for
+                                                Entry</a>
+                                        </div>
+                                    </div>
+                                    <label class="ts">Contact Name</label>
+                                    <input class="inpval" type="text" id="contactName" placeholder="Contact Name">
+                                    <label class="ts">Home Phone</label>
+                                    <input class="inpval" type="text" id="homePhone" placeholder="Home Phone">
+                                    <label class="ts">Business Phone</label>
+                                    <input class="inpval" type="text" id="businessPhone" placeholder="Business Phone">
+                                    <label class="ts">Cell Phone</label>
+                                    <input class="inpval" type="text" id="cellPhone" placeholder="Cell Phone">
+                                    <label class="ts">Email</label>
+                                    <input class="inpval" type="text" id="email" placeholder="Email">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Appraisal Accordion -->
+                    <div class="card">
+                        <div class="accordion-header" id="headingFive">
+                            <button class="btn btn-light" data-toggle="collapse" data-target="#collapseFive"
+                                aria-controls="collapseFive" data-parent="#accordion2">
+                                <div class="sub-head d-flex flex-column">
+                                    <div class="acc-heading d-flex flex-row">
+                                        <i class="bi bi-caret-right-fill"></i>
+                                        <div class="tile">
+                                            Apppraisal Order
+                                        </div>
+                                    </div>
+                                    <p class="sub" style="text-align:left; white-space: normal;" id="subtitle2">
+                                        Conventional |
+                                        Purchase
+                                        | Single Family | Investors: 0 | LoanPrograms: 0</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion2">
+                            <div class="accordion-body  d-flex flex-column">
+                                <!-- Loan Officer -->
+                                <div class="loanOfficer">
+                                    <p class="tp">Loan Officer </p>
+                                    <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                        id="loanOfficerMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        <span id="loanOfficerMenu">Loan Officer</span>
+                                        <span class="spanc ml-auto"><i class="bi bi-chevron-down"></i></span>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="loanOfficerMenuButton"
+                                        id="loanOfficerDropdown">
+                                        <a class="loanOfficer-item" href="#"></a>
+                                    </div>
+                                </div>
+                                <div class="a1 d-flex justify-content-between">
+                                    <!-- Loan Type -->
+                                    <div class="loanType">
+                                        <p class="ts">Loan Type</p>
+                                        <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                            id="loanTypeMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <span class="ab" id="loanTypeMenu"> Loan Type</span>
+                                            <span class="spanca ml-auto"><i class="bi bi-chevron-down"></i></span>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="loanTypeMenuButton"
+                                            id="loanTypeDropdown">
+                                            <a class="loanType-item" href="#"></a>
+                                        </div>
+                                    </div>
+                                    <!-- Loan Purpose -->
+                                    <div class="loanPurpose">
+                                        <p class="ts">Loan Purpose</p>
+                                        <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                            id="loanPurposeMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <span class="ab" id="loanPurposeMenu">Loan Purpose</span>
+                                            <span class="spanca ml-auto"><i class="bi bi-chevron-down"></i></span>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="loanPurposeMenuButton"
+                                            id="loanPurposeDropdown">
+                                            <a class="loanPurpose-item" href="#"></a>
+                                        </div>
+                                    </div>
+                                    <!-- Property Type -->
+                                    <div class="propertype">
+                                        <p class="ts">Property Type</p>
+                                        <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                            id="propertypeMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <span class="ab" id="propertypeMenu">Property Type</span>
+                                            <span class="spanca ml-auto"><i class="bi bi-chevron-down"></i></span>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="propertypeMenuButton"
+                                            id="propertypeDropdown">
+                                            <a class="propertype-item" href="#"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Form -->
+                                <div class="Form">
+                                    <p class="tp">Form </p>
+                                    <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                        id="FormMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        <span id="FormMenu">Form</span>
+                                        <span class="spanca ml-auto"><i class="bi bi-chevron-down"></i></span>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="FormMenuButton" id="FormDropdown">
+                                    </div>
+                                </div>
+                                <!-- Due-Date -->
+                                <div class="Due-Date">
+                                    <p class="tp">Due-Date</p>
+                                    <div class="date">
+                                        <input class="int-date" type="text" id="datepicker" placeholder="yyyy-mm-dd"
+                                            readonly>
+                                        <span class="date-icon" id="date-icon"><i
+                                                class="fas fa-calendar-alt"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="a2">
+                                    <!-- Investors -->
+                                    <div class="Investors">
+                                        <p class="ts"> Investors </p>
+                                        <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                            id="InvestorsMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <span id="InvestorsMenu">Investors</span>
+                                            <span class="spanca ml-auto"><i class="bi bi-chevron-down"></i></span>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="InvestorsMenuButton"
+                                            id="InvestorsDropdown">
+
+                                        </div>
+                                    </div>
+                                    <!-- Loan Programs -->
+                                    <div class="LoanPrograms">
+                                        <p class="ts">Loan Programs </p>
+                                        <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                            id="LoanProgramsMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <span class="ab" id="LoanProgramsMenu">Loan Programs</span>
+                                            <span class="spanca ml-auto"><i class="bi bi-chevron-down"></i></span>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="LoanProgramsMenuButton"
+                                            id="LoanProgramsDropdown">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row justify-content-between">
+                                    <div class="LP mb-3 " style="width:50%">
+                                        <label for="LPTextarea" class="form-label">LP:</label>
+                                        <textarea class="form-control" id="LPTextarea" name="LP" rows="2"
+                                            style="height:50px" required></textarea>
+                                    </div>
+                                    <div class="DU mb-3" style="width:50%">
+                                        <label for="DUTextarea" class="form-label">DU:</label>
+                                        <textarea class="form-control" id="DUTextarea" name="DU" rows="2"
+                                            style="height:50px" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Document accordion -->
+                    <div class="card">
+                        <div class="accordion-header" id="headingThree">
+                            <button class="btn btn-light" data-toggle="collapse" data-target="#collapseThree"
+                                aria-controls="collapseThree" data-parent="#accordion2">
+                                <div class="sub-head d-flex flex-column">
+                                    <div class="acc-heading d-flex flex-row">
+                                        <i class="bi bi-caret-right-fill"></i>
+                                        <div class="tile">
+                                            Document
+                                        </div>
+                                    </div>
+                                    <p class="sub" style="text-align:left; white-space: normal;">Purchase
+                                        Contract(1)</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                            data-parent="#accordion2">
+                            <div class="accordion-bod">
+                                <div class="doc-cont ">
+                                    <div class="input-group ">
+                                        <div class="form-outline d-flex flex-row" data-mdb-input-init>
+                                            <div class="ss">
+                                                <i class="fas fa-search"></i>
+                                                <input type="search" id="form1" class="form-search"
+                                                    placeholder="search" />
+                                            </div>
+                                            <button type="button" class="btn btn-light" data-mdb-ripple-init
+                                                onclick=openModel()>
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- Document Table -->
+                                    <table class="table ml-5 mt-2">
+                                        <tr class="filetable">
+                                            <th scope="col" class="cols4">FileName</th>
+                                            <th scope="col" class="cols4">Document Type</th>
+                                            <th scope="col" class="cols3">View</th>
+                                            <th scope="col" class="cols5">Delete</th>
+                                        </tr>
+                                        <tbody id="dataTableBody">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card  comment-acc">
+                        <div class="accordion-header" id="headingSix">
+                            <button class="btn btn-light" data-toggle="collapse" data-target="#collapseSix"
+                                aria-controls="collapseSix" data-parent="#accordion2">
+                                <div class="sub-head d-flex flex-column">
+                                    <div class="acc-heading d-flex flex-row">
+                                        <i class="bi bi-caret-right-fill"></i>
+                                        <div class="tile">
+                                            Comments
+                                        </div>
+                                    </div>
+                                    <p class="sub" style="text-align:left; white-space: normal;" id="commsubtitle">
+                                        Total Comments: 0
+                                </div>
+                            </button>
+                        </div>
+                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion2">
+                            <div class="accordion-bod  d-flex flex-column">
+                                <div>
+                                    <button type="button" class="btn btn-outline-primary"
+                                        style="width:fit-content; margin-bottom: 10px;" onclick=openCommModal()>
+                                        Add
+                                        Comment
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                    <table class="table ml-5">
+                                        <tr class="filetable">
+                                            <th scope="col" class="cols">Recipient Role</th>
+                                            <th scope="col" class="col1">Task sub Type</th>
+                                            <th scope="col" class="col2">Canned Comments</th>
+                                        </tr>
+                                        <tbody id="CommentTableBody">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="payment">
+                    <p class="ts">Payment </p>
+                    <button class="btn btn-outline-dark dropdown-toggle" type="button" id="paymentMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span id="paymentMenu">Payment</span>
+                        <span class="spanc ml-auto"><i class="bi bi-chevron-down"></i></span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="paymentMenuButton" id="paymentDropdown">
+                    </div>
+                </div>
+                <div class="EmailInput" style="display:none">
+                    <p class="ts">Email </p>
+                    <textarea class="form-control" id="emailInput" placeholder="example@gmail.com"
+                        style="height:50px"></textarea>
+                </div>
+                <div class="instruction">
+                    <p class="ts">Instruction </p>
+                    <textarea class="form-control" id="textareaInput" rows="3"
+                        placeholder="Initial Order Instructions"></textarea>
+                </div>
+                <div class="watchers">
+                    <p class="ts">Watchers </p>
+                    <button class="btn btn-outline-dark dropdown-toggle" type="button" id="watchersMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span id="watchersMenu">Watchers</span>
+                        <span class="spanc ml-auto"><i class="bi bi-chevron-down"></i></span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="watchersMenuButton" id="watchersDropdown">
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <footer>
+                    <!-- Footer content and submit button -->
+                    <div class="sub-cont" style="margin-bottom:10px;">
+                        <button type="button" class="btn btn-primary " id="submitButton"
+                            onclick="sendorder()">Submit</button>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="DocumentType" style="display:none">
+    <button class="DocumentTypeMenuButton btn btn-outline-dark dropdown-toggle" type="button"
+        id="DocumentTypeMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="ab" id="DocumentTypeMenu">Document Type</span>
+        <span class="spanca ml-auto"><i class="bi bi-chevron-down"></i></span>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="DocumentTypeMenuButton" id="DocumentTypeDropdown">
+    </div>
+</div>
+<!-- Modal for adding comments -->
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="commentModalLabel"> Add Comment
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="commentTextarea" class="form-label">Comment:</label>
+                    <textarea class="form-control" id="commentTextarea" name="comment" rows="5" required></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="model-btn d-flex flex-row">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick=addComment()
+                        aria-label="Submit">
+                        <span aria-hidden="true">Submit</span>
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Cancel">
+                        <span aria-hidden="true">Cancel</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer section for the webpage -->
+<footer class="footer">
+    <!-- Footer content including order ID display and action buttons -->
+    <div class="d-flex flex-row justify-content-between">
+        <div class="OrderIds" style="margin-left:26px">
+            <strong>
+                <p class="OrderId">Order ID:</p>
+            </strong>
+        </div>
+        <div class="buttonss d-flex flex-row">
+            <div class="CreateOrder" style="margin-right: 10px;">
+                <button type="button" class="btn btn-outline-primary" id="CreateOrderButton">Create
+                    Order</button>
+            </div>
+            <div class="CloseButton" style="margin:5px;">
+                <button type="button" class="btn btn-primary " id="submitButton" onclick="">Close</button>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Script file inclusion for functionality -->
+<script src="order.js"></script>
+</body>
+
+</html>

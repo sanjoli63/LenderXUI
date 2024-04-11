@@ -1,0 +1,71 @@
+{
+  "default": {
+    "356": true,
+    "617": true,
+    "618": true,
+    "619": true,
+    "620": true,
+    "621": true,
+    "622": true,
+    "641": false,
+    "1244": true,
+    "1401": false,
+    "1821": false,
+    "API Key": "E5DEsSvAAgKowf52BjJqAg",
+    "API Secret": "mupojP8O3yCkQX3mWv2nlA",
+    "Base URL": "https://app.sandbox1.lenderx-labs.com",
+    "Enable Payment": false,
+    "Wait For Complete": false,
+    "CreateEfolder": true,
+    "ULDD.X30": false,
+    "ULDD.X31": false
+  },
+  "user": [
+    {
+      "Birendra@Vidyatech.com": {
+        "356": true,
+        "617": true,
+        "618": true,
+        "619": true,
+        "620": true,
+        "621": true,
+        "622": true,
+        "641": false,
+        "1244": true,
+        "1401": false,
+        "1821": false,
+        "API Key": "E5DEsSvAAgKowf52BjJqAg",
+        "API Secret": "mupojP8O3yCkQX3mWv2nlA",
+        "Base URL": "https://app.sandbox1.lenderx-labs.com",
+        "Enable Payment": false,
+        "Wait For Complete": false,
+        "CreateEfolder": true,
+        "ULDD.X30": false,
+        "ULDD.X31": false
+      }
+    },
+    {
+      "shubham@Vidyatech.com": {
+        "356": true,
+        "617": true,
+        "618": true,
+        "619": true,
+        "620": true,
+        "621": true,
+        "622": true,
+        "641": false,
+        "1244": true,
+        "1401": false,
+        "1821": false,
+        "API Key": "E5DEsSvAAgKowf52BjJqAg",
+        "API Secret": "mupojP8O3yCkQX3mWv2nlA",
+        "Base URL": "https://app.sandbox1.lenderx-labs.com",
+        "Enable Payment": false,
+        "Wait For Complete": false,
+        "CreateEfolder": true,
+        "ULDD.X30": false,
+        "ULDD.X31": false
+      }
+    }
+  ]
+}

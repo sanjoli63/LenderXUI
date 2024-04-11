@@ -1,0 +1,100 @@
+ 
+ var propertyAddress= document.getElementById("Property Address").textContent.split(',').map(item => item.trim());
+  const selectedInvestorsData = selectedInvestors.map(investor => user_id= investor.user_id);
+  console.log(selectedInvestors)
+  const selectedFormData = selectedForms;
+  const selectedWatchersData = selectedWatchers.map(watcher =>
+    user_id= watcher.user_id);
+ var orderDetails = {
+      user: {
+          LoanCreaterName: document.getElementById("LoanCreaterName").textContent,
+          borrower: {
+              lastName: originData.loan.applications[0]?.borrower?.lastName || "",
+              firstName: originData.loan.applications[0]?.borrower?.firstName || "",
+              homePhoneNumber: originData.loan.applications[0]?.borrower?.homePhoneNumber || "",
+              emailAddressText: originData.loan.applications[0]?.borrower?.emailAddressText || "",
+              fullNameWithSuffix: originData.loan.applications[0]?.borrower?.fullNameWithSuffix || ""
+          },
+          coborrower: {
+              lastName: originData.loan.applications[0]?.coborrower?.lastName || "",
+              firstName: originData.loan.applications[0]?.coborrower?.firstName || "",
+              homePhoneNumber: originData.loan.applications[0]?.coborrower?.homePhoneNumber || "",
+              emailAddressText: originData.loan.applications[0]?.coborrower?.emailAddressText || "",
+              fullNameWithSuffix: originData.loan.applications[0]?.coborrower?.fullNameWithSuffix || ""
+          },
+          propertyAddress: {
+              streetAddress: propertyAddress[0] || "",
+              city: propertyAddress[1] || "",
+              state: propertyAddress[2] || "",
+              zip: propertyAddress[3] || ""
+          },
+          loanNumber: document.getElementById("Loan Number").textContent || "",
+          purchasePrice: (document.getElementById("Purchase Price").textContent || "").replace(/\$/g, ""),
+          estimatedValue: (document.getElementById("Estimated Value").textContent || "").replace(/\$/g, ""),
+          loanAmount: (document.getElementById("Loan Amount").textContent || "").replace(/\$/g, ""),          
+      },
+      contactEntry: {
+          contactType: document.getElementById("contactentryMenuButton").textContent || "",
+          contactName: document.getElementById("contactName").value || "",
+          homePhone: document.getElementById("homePhone").value || "",
+          businessPhone: document.getElementById("businessPhone").value || "",
+          cellPhone: document.getElementById("cellPhone").value || "",
+          email: document.getElementById("email").value || "",
+      },
+      appraisalOrder: {
+          loanOfficerId: selectedDropdownValues['loanOfficer'] || "",
+          loanTypeId: selectedDropdownValues['loanType'] || "",
+          loanPurposeId: selectedDropdownValues['loanPurpose'] || "",
+          propertyTypeId: selectedDropdownValues['propertype'] || "",
+          loanProgramsId: selectedDropdownValues['LoanPrograms'] || "",
+          loanOfficer: document.getElementById("loanOfficerMenuButton").textContent || "",
+          loanType: document.getElementById("loanTypeMenuButton").textContent.toLowerCase() || "",
+          loanPurpose: document.getElementById("loanPurposeMenuButton").textContent || "",
+          propertyType: document.getElementById("propertypeMenuButton").textContent || "",
+          form: selectedFormData || "",
+          dueDate: document.getElementById("datepicker").value || "",
+          investors: selectedInvestorsData || "",
+          watchers: selectedWatchersData || "",
+          loanPrograms: document.getElementById("LoanProgramsMenuButton").textContent || "",
+      },
+      document: { 
+          documentType: document.getElementById("DocumentTypeMenuButton").textContent || "",
+      },
+      instruction: document.getElementById('textareaInput').value || "",
+  };
+
+
+const dataObject = {
+        borrower_name: $(this).find('application_file > borrower_name').text(),
+        borrower_email: $(this).find('application_file > borrower_email').text(),
+        borrower_home_phone: $(this).find('application_file > borrower_home_phone').text(),
+        borrower_mobile_phone: $(this).find('application_file > borrower_mobile_phone').text(),
+        borrower_work_phone: $(this).find('application_file > borrower_work_phone').text(),
+        coborrower_name: $(this).find('application_file > coborrower_name').text(),
+        coborrower_email: $(this).find('application_file > coborrower_email').text(),
+        coborrower_home_phone: $(this).find('application_file > coborrower_home_phone').text(),
+        coborrower_mobile_phone: $(this).find('application_file > coborrower_mobile_phone').text(),
+        coborrower_work_phone: $(this).find('application_file > coborrower_work_phone').text(),
+        create_date: formatTime($(this).find('application_file >create_date').text()),
+        create_user_id: $(this).find('application_file>create_user_id').text(),
+        loan_amount: $(this).find('application_file > loan_amount').text(),
+        loan_number: $(this).find('application_file > loan_number').text(),
+        loan_officer_id: $(this).find('application_file > loan_officer_id').text(),
+        loan_officer_name: $(this).find('application_file > loan_officer_name').text(),
+        loan_purpose_value: $(this).find('application_file > loan_purpose_value').text(),
+        loan_type_value: $(this).find('application_file > loan_type > description').text(),
+        property_type: $(this).find('application_file > property_type > description').text(),
+        purchase_price: $(this).find('application_file > purchase_price').text(),
+        realtor_alt_phone: $(this).find('application_file > realtor_alt_phone').text(),
+        realtor_contact: $(this).find('application_file > realtor_contact').text(),
+        realtor_email: $(this).find('application_file > realtor_email').text(),
+        realtor_home_phone: $(this).find('application_file > realtor_home_phone').text(),
+        realtor_phone: $(this).find('application_file > realtor_phone').text(),
+        revised_date: $(this).find('application_file > revised_date').text(),
+        appraisal_order_id: $(this).find('appraisal_order_id').text(),
+        appraisal_status_value: $(this).find('appraisal_status_value').text(),
+        appraiser_id: $(this).find('appraiser_id').text(),
+        comments: $(this).find('comments').text(),
+        due_date:$(this).find('lender_requested_delivery_date:eq(1)').text(),
+        form:$(this).find('lender_requested_delivery_date:eq(1)').text()
+    };

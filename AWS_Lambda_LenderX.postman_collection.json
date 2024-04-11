@@ -1,0 +1,579 @@
+{
+	"info": {
+		"_postman_id": "1533525d-bdfb-4cdc-ab8d-1234abd1a2e8",
+		"name": "AWS_Lambda_LenderX",
+		"description": "Collection of AXS Lambda Fucntions for LenderX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "25695164"
+	},
+	"item": [
+		{
+			"name": "CreateLXOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\"?>\r\n<request xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n    <application_file>\r\n        <borrower_first_name>Test1</borrower_first_name>\r\n        <borrower_last_name>Order</borrower_last_name>\r\n        <borrower_middle_name></borrower_middle_name>\r\n        <borrower_home_phone>917033471111</borrower_home_phone>\r\n        <borrower_work_phone>917033471111</borrower_work_phone>\r\n        <borrower_mobile_phone>917033471111</borrower_mobile_phone>\r\n        <borrower_email>test@test.com</borrower_email>\r\n        <coborrower_first_name>Test11</coborrower_first_name>\r\n        <coborrower_middle_name></coborrower_middle_name>\r\n        <coborrower_last_name>order1</coborrower_last_name>\r\n        <coborrower_home_phone>917033471111</coborrower_home_phone>\r\n        <coborrower_work_phone>917033471111</coborrower_work_phone>\r\n        <coborrower_mobile_phone>917033471111</coborrower_mobile_phone>\r\n        <coborrower_email>t@test.com</coborrower_email>\r\n        <real_estate_agent_first_name>Test111</real_estate_agent_first_name>\r\n        <real_estate_agent_middle_name></real_estate_agent_middle_name>\r\n        <real_estate_agent_last_name>order11</real_estate_agent_last_name>\r\n        <real_estate_agent_home_phone>917033471111</real_estate_agent_home_phone>\r\n        <real_estate_agent_work_phone>917033471111</real_estate_agent_work_phone>\r\n        <real_estate_agent_cell_phone>917033471111</real_estate_agent_cell_phone>\r\n        <real_estate_agent_email>t@test.com</real_estate_agent_email>\r\n        <address>\r\n            <zip>90017</zip>\r\n            <city>Los Angeles</city>\r\n            <state_abbrev>CA</state_abbrev>\r\n            <line1>1 Test St.</line1>\r\n            <line2></line2>\r\n        </address>\r\n        <investors>\r\n            <available_investor_id>1437</available_investor_id>\r\n        </investors>\r\n        <loan_type_value>conventional</loan_type_value>\r\n        <property_type_id>1</property_type_id>\r\n        <loan_amount>150000</loan_amount>\r\n        <loan_number>234123123</loan_number>\r\n        <loan_officer_id>62160</loan_officer_id>\r\n        <loan_programs>1</loan_programs>\r\n        <loan_purpose_value>Purchase</loan_purpose_value>\r\n        <purchase_price>199999</purchase_price>\r\n        <estimated_value>0</estimated_value>\r\n        <watchers>60143</watchers>\r\n        <extension></extension>\r\n        <do_not_submit_to_ead>true</do_not_submit_to_ead>\r\n        <do_not_submit_to_ucdp>true</do_not_submit_to_ucdp>\r\n        <duplicate_borrower_name>1</duplicate_borrower_name>\r\n        <duplicate_loan_number>1</duplicate_loan_number>\r\n        <duplicate_property_address>1</duplicate_property_address>\r\n        <ignore_invalid_address>0</ignore_invalid_address>\r\n    </application_file>\r\n    <order_source_value>lenderx_appraisal_order</order_source_value>\r\n    <comments>Test Order instructions</comments>\r\n    <forms>\r\n        <no_delete>false</no_delete>\r\n        <display_order>1</display_order>\r\n        <appraisal_type_value>1004UniformResidentialAppraisal</appraisal_type_value>\r\n        <loan_type_value>conventional</loan_type_value>\r\n        <description>1004 - Single Family Residence</description>\r\n        <item_id />\r\n        <amount>435</amount>\r\n        <expanded_description>The 1004 is the most commonly ordered residential form appraisal. This is an appraisal of a single family residence or a one-unit property with an accessory unit; including a unit in a planned unit development (PUD).This report is completed on the Uniform Residential Appraisal Report form and provides the benefit of a full interior and exterior inspection of the subject property. As with all of the appraisal report products, the intended use is to providean opinion of the market value of the subject property. Report to include: Completed six page URAR form with all appropriate certifications and limiting conditions. Completed 1004MC Market Condition Addendum. </expanded_description>\r\n        <quoted_amount></quoted_amount>\r\n        <refundable>true</refundable>\r\n    </forms>\r\n    <borrower_email>test@test.com</borrower_email>\r\n    <borrower_enters_payment_info>false</borrower_enters_payment_info>\r\n    <lender_requested_delivery_date>2024-02-09</lender_requested_delivery_date>\r\n</request>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://c9tptxh1qb.execute-api.eu-north-1.amazonaws.com/LenderXTesting/create_Order?lx_user=shubham@vidyatech.com&APIKey=E5DEsSvAAgKowf52BjJqAg&APISecret=mupojP8O3yCkQX3mWv2nlA&BaseURL=https://app.sandbox1.lenderx-labs.com",
+					"protocol": "https",
+					"host": [
+						"c9tptxh1qb",
+						"execute-api",
+						"eu-north-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"LenderXTesting",
+						"create_Order"
+					],
+					"query": [
+						{
+							"key": "lx_user",
+							"value": "shubham@vidyatech.com"
+						},
+						{
+							"key": "APIKey",
+							"value": "E5DEsSvAAgKowf52BjJqAg"
+						},
+						{
+							"key": "APISecret",
+							"value": "mupojP8O3yCkQX3mWv2nlA"
+						},
+						{
+							"key": "BaseURL",
+							"value": "https://app.sandbox1.lenderx-labs.com"
+						}
+					]
+				},
+				"description": "Creates new order"
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Loan_Permissions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://c9tptxh1qb.execute-api.eu-north-1.amazonaws.com/LenderXTesting/get_permissions?LXUser=shubham@vidyatech.com&APIKey=E5DEsSvAAgKowf52BjJqAg&APISecret=mupojP8O3yCkQX3mWv2nlA&BaseURL=https://app.sandbox1.lenderx-labs.com",
+					"protocol": "https",
+					"host": [
+						"c9tptxh1qb",
+						"execute-api",
+						"eu-north-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"LenderXTesting",
+						"get_permissions"
+					],
+					"query": [
+						{
+							"key": "LXUser",
+							"value": "shubham@vidyatech.com"
+						},
+						{
+							"key": "APIKey",
+							"value": "E5DEsSvAAgKowf52BjJqAg"
+						},
+						{
+							"key": "APISecret",
+							"value": "mupojP8O3yCkQX3mWv2nlA"
+						},
+						{
+							"key": "BaseURL",
+							"value": "https://app.sandbox1.lenderx-labs.com"
+						}
+					]
+				},
+				"description": "Gets loan permissions"
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Investors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://c9tptxh1qb.execute-api.eu-north-1.amazonaws.com/LenderXTesting/get_investors?LXUser=shubham@vidyatech.com&APIKey=E5DEsSvAAgKowf52BjJqAg&APISecret=mupojP8O3yCkQX3mWv2nlA&BaseURL=https://app.sandbox1.lenderx-labs.com",
+					"protocol": "https",
+					"host": [
+						"c9tptxh1qb",
+						"execute-api",
+						"eu-north-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"LenderXTesting",
+						"get_investors"
+					],
+					"query": [
+						{
+							"key": "LXUser",
+							"value": "shubham@vidyatech.com"
+						},
+						{
+							"key": "APIKey",
+							"value": "E5DEsSvAAgKowf52BjJqAg"
+						},
+						{
+							"key": "APISecret",
+							"value": "mupojP8O3yCkQX3mWv2nlA"
+						},
+						{
+							"key": "BaseURL",
+							"value": "https://app.sandbox1.lenderx-labs.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Watchers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://c9tptxh1qb.execute-api.eu-north-1.amazonaws.com/LenderXTesting/get_watchers?LXUser=shubham@vidyatech.com&APIKey=E5DEsSvAAgKowf52BjJqAg&APISecret=mupojP8O3yCkQX3mWv2nlA&BaseURL=https://app.sandbox1.lenderx-labs.com&LoanOfficerId=62160",
+					"protocol": "https",
+					"host": [
+						"c9tptxh1qb",
+						"execute-api",
+						"eu-north-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"LenderXTesting",
+						"get_watchers"
+					],
+					"query": [
+						{
+							"key": "LXUser",
+							"value": "shubham@vidyatech.com"
+						},
+						{
+							"key": "APIKey",
+							"value": "E5DEsSvAAgKowf52BjJqAg"
+						},
+						{
+							"key": "APISecret",
+							"value": "mupojP8O3yCkQX3mWv2nlA"
+						},
+						{
+							"key": "BaseURL",
+							"value": "https://app.sandbox1.lenderx-labs.com"
+						},
+						{
+							"key": "LoanOfficerId",
+							"value": "62160"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_States",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://c9tptxh1qb.execute-api.eu-north-1.amazonaws.com/LenderXTesting/get_states?LXUser=shubham@vidyatech.com&APIKey=E5DEsSvAAgKowf52BjJqAg&APISecret=mupojP8O3yCkQX3mWv2nlA&BaseURL=https://app.sandbox1.lenderx-labs.com",
+					"protocol": "https",
+					"host": [
+						"c9tptxh1qb",
+						"execute-api",
+						"eu-north-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"LenderXTesting",
+						"get_states"
+					],
+					"query": [
+						{
+							"key": "LXUser",
+							"value": "shubham@vidyatech.com"
+						},
+						{
+							"key": "APIKey",
+							"value": "E5DEsSvAAgKowf52BjJqAg"
+						},
+						{
+							"key": "APISecret",
+							"value": "mupojP8O3yCkQX3mWv2nlA"
+						},
+						{
+							"key": "BaseURL",
+							"value": "https://app.sandbox1.lenderx-labs.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Loan_Officers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://c9tptxh1qb.execute-api.eu-north-1.amazonaws.com/LenderXTesting/get_loan_officers?LXUser=shubham@vidyatech.com&APIKey=E5DEsSvAAgKowf52BjJqAg&APISecret=mupojP8O3yCkQX3mWv2nlA&BaseURL=https://app.sandbox1.lenderx-labs.com&DataProfile=REST_minimal",
+					"protocol": "https",
+					"host": [
+						"c9tptxh1qb",
+						"execute-api",
+						"eu-north-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"LenderXTesting",
+						"get_loan_officers"
+					],
+					"query": [
+						{
+							"key": "LXUser",
+							"value": "shubham@vidyatech.com"
+						},
+						{
+							"key": "APIKey",
+							"value": "E5DEsSvAAgKowf52BjJqAg"
+						},
+						{
+							"key": "APISecret",
+							"value": "mupojP8O3yCkQX3mWv2nlA"
+						},
+						{
+							"key": "BaseURL",
+							"value": "https://app.sandbox1.lenderx-labs.com"
+						},
+						{
+							"key": "DataProfile",
+							"value": "REST_minimal"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Forms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://c9tptxh1qb.execute-api.eu-north-1.amazonaws.com/LenderXTesting/get_forms?LXUser=shubham@vidyatech.com&APIKey=E5DEsSvAAgKowf52BjJqAg&APISecret=mupojP8O3yCkQX3mWv2nlA&BaseURL=https://app.sandbox1.lenderx-labs.com&loan_type_value=conventional&city=Milwaukee&state_abbrev=WI&zipcode=53207",
+					"protocol": "https",
+					"host": [
+						"c9tptxh1qb",
+						"execute-api",
+						"eu-north-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"LenderXTesting",
+						"get_forms"
+					],
+					"query": [
+						{
+							"key": "LXUser",
+							"value": "shubham@vidyatech.com"
+						},
+						{
+							"key": "APIKey",
+							"value": "E5DEsSvAAgKowf52BjJqAg"
+						},
+						{
+							"key": "APISecret",
+							"value": "mupojP8O3yCkQX3mWv2nlA"
+						},
+						{
+							"key": "BaseURL",
+							"value": "https://app.sandbox1.lenderx-labs.com"
+						},
+						{
+							"key": "loan_type_value",
+							"value": "conventional"
+						},
+						{
+							"key": "city",
+							"value": "Milwaukee"
+						},
+						{
+							"key": "state_abbrev",
+							"value": "WI"
+						},
+						{
+							"key": "zipcode",
+							"value": "53207"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Loan_Documents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://c9tptxh1qb.execute-api.eu-north-1.amazonaws.com/LenderXTesting/get_loan_documents?LXUser=shubham@vidyatech.com&APIKey=E5DEsSvAAgKowf52BjJqAg&APISecret=mupojP8O3yCkQX3mWv2nlA&BaseURL=https://app.sandbox1.lenderx-labs.com",
+					"protocol": "https",
+					"host": [
+						"c9tptxh1qb",
+						"execute-api",
+						"eu-north-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"LenderXTesting",
+						"get_loan_documents"
+					],
+					"query": [
+						{
+							"key": "LXUser",
+							"value": "shubham@vidyatech.com"
+						},
+						{
+							"key": "APIKey",
+							"value": "E5DEsSvAAgKowf52BjJqAg"
+						},
+						{
+							"key": "APISecret",
+							"value": "mupojP8O3yCkQX3mWv2nlA"
+						},
+						{
+							"key": "BaseURL",
+							"value": "https://app.sandbox1.lenderx-labs.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Loan_Programs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://c9tptxh1qb.execute-api.eu-north-1.amazonaws.com/LenderXTesting/get_loan_programs?LXUser=shubham@vidyatech.com&APIKey=E5DEsSvAAgKowf52BjJqAg&APISecret=mupojP8O3yCkQX3mWv2nlA&BaseURL=https://app.sandbox1.lenderx-labs.com",
+					"protocol": "https",
+					"host": [
+						"c9tptxh1qb",
+						"execute-api",
+						"eu-north-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"LenderXTesting",
+						"get_loan_programs"
+					],
+					"query": [
+						{
+							"key": "LXUser",
+							"value": "shubham@vidyatech.com"
+						},
+						{
+							"key": "APIKey",
+							"value": "E5DEsSvAAgKowf52BjJqAg"
+						},
+						{
+							"key": "APISecret",
+							"value": "mupojP8O3yCkQX3mWv2nlA"
+						},
+						{
+							"key": "BaseURL",
+							"value": "https://app.sandbox1.lenderx-labs.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Loan_Purpose",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://c9tptxh1qb.execute-api.eu-north-1.amazonaws.com/LenderXTesting/get_loan_purpose?LXUser=shubham@vidyatech.com&APIKey=E5DEsSvAAgKowf52BjJqAg&APISecret=mupojP8O3yCkQX3mWv2nlA&BaseURL=https://app.sandbox1.lenderx-labs.com",
+					"protocol": "https",
+					"host": [
+						"c9tptxh1qb",
+						"execute-api",
+						"eu-north-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"LenderXTesting",
+						"get_loan_purpose"
+					],
+					"query": [
+						{
+							"key": "LXUser",
+							"value": "shubham@vidyatech.com"
+						},
+						{
+							"key": "APIKey",
+							"value": "E5DEsSvAAgKowf52BjJqAg"
+						},
+						{
+							"key": "APISecret",
+							"value": "mupojP8O3yCkQX3mWv2nlA"
+						},
+						{
+							"key": "BaseURL",
+							"value": "https://app.sandbox1.lenderx-labs.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Property_Types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://c9tptxh1qb.execute-api.eu-north-1.amazonaws.com/LenderXTesting/get_property_type?LXUser=shubham@vidyatech.com&APIKey=E5DEsSvAAgKowf52BjJqAg&APISecret=mupojP8O3yCkQX3mWv2nlA&BaseURL=https://app.sandbox1.lenderx-labs.com",
+					"protocol": "https",
+					"host": [
+						"c9tptxh1qb",
+						"execute-api",
+						"eu-north-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"LenderXTesting",
+						"get_property_type"
+					],
+					"query": [
+						{
+							"key": "LXUser",
+							"value": "shubham@vidyatech.com"
+						},
+						{
+							"key": "APIKey",
+							"value": "E5DEsSvAAgKowf52BjJqAg"
+						},
+						{
+							"key": "APISecret",
+							"value": "mupojP8O3yCkQX3mWv2nlA"
+						},
+						{
+							"key": "BaseURL",
+							"value": "https://app.sandbox1.lenderx-labs.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Loan_Types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://c9tptxh1qb.execute-api.eu-north-1.amazonaws.com/LenderXTesting/get_loan_types?LXUser=shubham@vidyatech.com&APIKey=E5DEsSvAAgKowf52BjJqAg&APISecret=mupojP8O3yCkQX3mWv2nlA&BaseURL=https://app.sandbox1.lenderx-labs.com",
+					"protocol": "https",
+					"host": [
+						"c9tptxh1qb",
+						"execute-api",
+						"eu-north-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"LenderXTesting",
+						"get_loan_types"
+					],
+					"query": [
+						{
+							"key": "LXUser",
+							"value": "shubham@vidyatech.com"
+						},
+						{
+							"key": "APIKey",
+							"value": "E5DEsSvAAgKowf52BjJqAg"
+						},
+						{
+							"key": "APISecret",
+							"value": "mupojP8O3yCkQX3mWv2nlA"
+						},
+						{
+							"key": "BaseURL",
+							"value": "https://app.sandbox1.lenderx-labs.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Loan_Preferences",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://c9tptxh1qb.execute-api.eu-north-1.amazonaws.com/LenderXTesting/get_loan_preferences?LXUser=shubham@vidyatech.com&APIKey=E5DEsSvAAgKowf52BjJqAg&APISecret=mupojP8O3yCkQX3mWv2nlA&BaseURL=https://app.sandbox1.lenderx-labs.com",
+					"protocol": "https",
+					"host": [
+						"c9tptxh1qb",
+						"execute-api",
+						"eu-north-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"LenderXTesting",
+						"get_loan_preferences"
+					],
+					"query": [
+						{
+							"key": "LXUser",
+							"value": "shubham@vidyatech.com"
+						},
+						{
+							"key": "APIKey",
+							"value": "E5DEsSvAAgKowf52BjJqAg"
+						},
+						{
+							"key": "APISecret",
+							"value": "mupojP8O3yCkQX3mWv2nlA"
+						},
+						{
+							"key": "BaseURL",
+							"value": "https://app.sandbox1.lenderx-labs.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
